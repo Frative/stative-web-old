@@ -2,9 +2,7 @@ import React from 'react'
 import { AppBar } from 'components'
 
 function App() {
-  return (
-    <AppBar />
-  )
+  return <AppBar />
 }
 
 export default App
