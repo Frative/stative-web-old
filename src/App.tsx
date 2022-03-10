@@ -1,8 +1,15 @@
 import React from 'react'
-import { AppBar } from 'components'
+import { BrowserRouter } from 'react-router-dom'
+import { AppBar, ProvideContextData } from 'components'
 
 function App() {
-  return <AppBar />
+  return (
+    <BrowserRouter>
+      <ProvideContextData>
+        <AppBar />
+      </ProvideContextData>
+    </BrowserRouter>
+  )
 }
 
 export default App
