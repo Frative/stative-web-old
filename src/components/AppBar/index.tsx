@@ -1,7 +1,7 @@
 // region import
 import React from 'react'
 import {
-  AppBar as MUIAppBar, Box, Toolbar, Typography, Drawer,
+  AppBar as MUIAppBar, Box, Toolbar, Typography,
 } from '@mui/material'
 
 function AppBar() {
@@ -13,7 +13,6 @@ function AppBar() {
             {process.env.REACT_APP_NAME}
           </Typography>
         </Toolbar>
-        <Drawer anchor="left">test</Drawer>
       </MUIAppBar>
     </Box>
   )
