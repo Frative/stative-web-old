@@ -1,5 +1,7 @@
+import { BinanceSymbol } from 'interfaces'
+
 interface BinanceExchangeInfo {
-symbols: []
+symbols: BinanceSymbol[]
 }
 
 export default BinanceExchangeInfo

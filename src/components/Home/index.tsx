@@ -1,11 +1,15 @@
 // region import
 import React, { useContext, useEffect } from 'react'
+import { Container } from '@mui/material'
 
 // interfaces
 import { BinanceExchangeInfo } from 'interfaces'
 
 // contexts
 import { Data } from 'contexts'
+
+// components
+import { CardBinanceSymbol } from 'components'
 
 // utilities
 import { ep } from 'utilities'
@@ -25,9 +29,12 @@ function Home() {
     })
   }, [])
 
-  console.log(exchangeInfo)
   return (
-    <div>Hellow.</div>
+    <Container sx={{ display: 'flex', flexWrap: 'wrap' }}>
+      {exchangeInfo && exchangeInfo.symbols.map((symbol) => (
+        <CardBinanceSymbol key={symbol.symbol} {...symbol} />
+      ))}
+    </Container>
   )
 }
 

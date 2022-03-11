@@ -1,3 +1,5 @@
 export { default as AppBar } from './AppBar'
 export { default as ProvideContextData } from './ProvideContextData'
 export { default as Home } from './Home'
+export { default as CardBinanceSymbol } from './CardBinanceSymbol'
+export { default as AppStart } from './AppStart'
