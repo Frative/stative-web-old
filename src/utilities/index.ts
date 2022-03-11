@@ -1,5 +1,11 @@
 import { BackendRequestMethodsAllowed } from 'types'
 
+export const ep = {
+  binance: {
+    exchangeInfo: 'https://api.binance.com/api/v3/exchangeInfo',
+  },
+}
+
 export function requestId(
   method: BackendRequestMethodsAllowed,
   endpoint: string,

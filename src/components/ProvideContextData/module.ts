@@ -26,13 +26,7 @@ function requestCallback(
     if (method !== 'get') {
       options.body = JSON.stringify(params)
     }
-    options.credentials = 'include'
     options.method = method
-    options.headers = {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      nonce: Math.trunc(new Date().getTime() / 1000).toString(),
-    }
     return fetch(path, options)
   }
 }
@@ -70,7 +64,7 @@ function requester(stage: Stage<State>): Requester {
       && !inQueue
       && stage.state.queueCallbacks
     ) {
-      const path = `${process.env.REACT_APP_API}${method === 'get' ? urlParams : endpoint}`
+      const path = `${method === 'get' ? urlParams : endpoint}`
       const callback = requestCallback(path, method, params)
       stage.state.queueCallbacks.push({
         callback,
