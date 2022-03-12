@@ -16,3 +16,7 @@ export function requestId(
   const id = `${method}:${urlParams}`
   return id
 }
+
+export function capitalize(text: string) {
+  return text.slice(0, 1).toUpperCase() + text.slice(1).toLowerCase()
+}
