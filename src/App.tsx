@@ -5,6 +5,8 @@ import { AppBar, ProvideContextData, AppStart } from 'components'
 
 // views
 const Home = lazy(() => import('components/Home'))
+const BinanceSymbol = lazy(() => import('components/BinanceSymbol'))
+// endregion
 
 function App() {
   return (
@@ -15,6 +17,9 @@ function App() {
           <Suspense fallback={<CircularProgress />}>
             <Routes>
               <Route path="/" element={<Home />} />
+              <Route path="/binance/symbol">
+                <Route path=":symbol" element={<BinanceSymbol />} />
+              </Route>
             </Routes>
           </Suspense>
         </AppStart>

@@ -34,7 +34,6 @@ function AppStart(props: PropsWithChildren<{}>) {
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            paddingTop: 10,
           }}
         >
           <CircularProgress />

@@ -1,5 +1,6 @@
 // region import
 import React from 'react'
+import { Link } from 'react-router-dom'
 import {
   Box,
   Card,
@@ -7,6 +8,7 @@ import {
   CardContent,
   Typography,
   Button,
+  styled,
 } from '@mui/material'
 
 // interfaces
@@ -15,6 +17,10 @@ import { BinanceSymbol } from 'interfaces'
 // utilities
 import { capitalize } from 'utilities'
 // endregion
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+`
 
 function CardBinanceSymbol(props: BinanceSymbol) {
   return (
@@ -45,7 +51,9 @@ function CardBinanceSymbol(props: BinanceSymbol) {
           </Box>
         </CardContent>
         <CardActions>
-          <Button variant="contained">See more</Button>
+          <StyledLink to={`/binance/symbol/${props.symbol}`}>
+            <Button variant="contained">See more</Button>
+          </StyledLink>
         </CardActions>
       </Card>
     </Box>
