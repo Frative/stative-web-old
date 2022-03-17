@@ -16,7 +16,7 @@ const StyledLink = styled(Link)`
 
 function AppBar() {
   return (
-    <Box sx={{ flexGrow: 1, marginBottom: 1 }}>
+    <Box sx={{ flexGrow: 1, marginBottom: 3 }}>
       <MUIAppBar position="static">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>

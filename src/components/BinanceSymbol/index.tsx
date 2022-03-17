@@ -69,7 +69,7 @@ function BinanceSymbol() {
   }, [])
 
   return (
-    <Container>
+    <Container maxWidth={false}>
       <BackdropLoader open={!sell || !buy} />
       <Card variant="outlined">
         <CardContent>
