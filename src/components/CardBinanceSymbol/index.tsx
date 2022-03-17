@@ -9,6 +9,7 @@ import {
   Typography,
   Button,
   styled,
+  Divider,
 } from '@mui/material'
 
 // interfaces
@@ -27,9 +28,14 @@ function CardBinanceSymbol(props: BinanceSymbol) {
     <Box sx={{ minWidth: 275, margin: 1 }}>
       <Card variant="outlined">
         <CardContent>
-          <Typography variant="h6" component="div">
-            {props.symbol}
-          </Typography>
+          <Box>
+            <Typography variant="h6" component="div">
+              {props.symbol}
+            </Typography>
+          </Box>
+        </CardContent>
+        <Divider />
+        <CardContent>
           <Box>
             <Typography variant="body1">
               <span>Status:</span>
@@ -50,7 +56,8 @@ function CardBinanceSymbol(props: BinanceSymbol) {
             </Typography>
           </Box>
         </CardContent>
-        <CardActions>
+        <Divider />
+        <CardActions sx={{ padding: 2 }}>
           <StyledLink to={`/binance/symbol/${props.symbol}`}>
             <Button variant="contained">See more</Button>
           </StyledLink>
