@@ -66,7 +66,6 @@ function BinanceSymbol() {
       method: 'get',
       endpoint: ep.binance.depth,
       params,
-      updateCache: true,
     })
   }, [])
 
