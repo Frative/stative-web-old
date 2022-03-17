@@ -30,7 +30,9 @@ function CardBinanceSymbol(props: BinanceSymbol) {
         <CardContent>
           <Box>
             <Typography variant="h6" component="div">
-              {props.symbol}
+              {props.baseAsset}
+              -
+              {props.quoteAsset}
             </Typography>
           </Box>
         </CardContent>

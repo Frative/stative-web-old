@@ -31,9 +31,13 @@ function Home() {
 
   return (
     <Container maxWidth={false} sx={{ display: 'flex', flexWrap: 'wrap' }}>
-      {exchangeInfo && exchangeInfo.symbols.slice(0, 10).map((symbol) => (
-        <CardBinanceSymbol key={symbol.symbol} {...symbol} />
-      ))}
+      {exchangeInfo && exchangeInfo.symbols.filter(
+        (symbol) => symbol.quoteAsset === 'USDT' && symbol.status !== 'BREAK',
+      ).slice(0, 25).map(
+        (symbol) => (
+          <CardBinanceSymbol key={symbol.symbol} {...symbol} />
+        ),
+      )}
     </Container>
   )
 }
