@@ -1,9 +1,11 @@
 // region import
 import React, { PropsWithChildren, useContext, useEffect } from 'react'
-import { CircularProgress, Container } from '@mui/material'
 
 // interfaces
 import { BinanceExchangeInfo } from 'interfaces'
+
+// components
+import { BackdropLoader } from 'components'
 
 // contexts
 import { Data } from 'contexts'
@@ -29,16 +31,7 @@ function AppStart(props: PropsWithChildren<{}>) {
 
   return (
     <>
-      {!exchangeInfo && (
-        <Container
-          sx={{
-            display: 'flex',
-            justifyContent: 'center',
-          }}
-        >
-          <CircularProgress />
-        </Container>
-      )}
+      <BackdropLoader open={!exchangeInfo} />
       {exchangeInfo && props.children}
     </>
   )

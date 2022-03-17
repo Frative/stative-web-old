@@ -2,7 +2,11 @@
 import React, { useContext, useEffect, useMemo } from 'react'
 import { } from 'chart.js'
 import { useParams } from 'react-router-dom'
-import { Container, CircularProgress, styled } from '@mui/material'
+import {
+  Container, Card, CardContent,
+  Typography,
+  Box,
+} from '@mui/material'
 
 // interfaces
 import { BinanceDepth } from 'interfaces'
@@ -11,16 +15,11 @@ import { BinanceDepth } from 'interfaces'
 import { Data } from 'contexts'
 
 // components
-import { ChartCurve } from 'components'
+import { ChartCurve, BackdropLoader } from 'components'
 
 // utilities
 import { ep, binanceBidsWalls, binanceAsksWalls } from 'utilities'
 // endregion
-
-const SpinnerContainer = styled('div')`
-  display: flex;
-  justify-content: center;
-`
 
 function BinanceSymbol() {
   const data = useContext(Data)
@@ -71,18 +70,29 @@ function BinanceSymbol() {
 
   return (
     <Container>
-      {(!sell || !buy) && (
-        <SpinnerContainer>
-          <CircularProgress />
-        </SpinnerContainer>
-      )}
-      {sell && buy && (
-        <ChartCurve
-          labels={sell.quote.concat(buy.quote)}
-          data={sell.base}
-          secondaryData={new Array(sell.base.length).fill(null).concat(buy.base)}
-        />
-      )}
+      <BackdropLoader open={!sell || !buy} />
+      <Card variant="outlined">
+        <CardContent>
+          <Typography
+            sx={{
+              marginBottom: 1,
+            }}
+            variant="h6"
+            component="h2"
+          >
+            Order book
+          </Typography>
+          <Box>
+            {sell && buy && (
+              <ChartCurve
+                labels={sell.quote.concat(buy.quote)}
+                data={sell.base}
+                secondaryData={new Array(sell.base.length).fill(null).concat(buy.base)}
+              />
+            )}
+          </Box>
+        </CardContent>
+      </Card>
     </Container>
   )
 }
