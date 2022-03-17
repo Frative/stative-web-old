@@ -31,7 +31,7 @@ function Home() {
 
   return (
     <Container sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
-      {exchangeInfo && exchangeInfo.symbols.slice(0, 100).map((symbol) => (
+      {exchangeInfo && exchangeInfo.symbols.slice(0, 10).map((symbol) => (
         <CardBinanceSymbol key={symbol.symbol} {...symbol} />
       ))}
     </Container>
