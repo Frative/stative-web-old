@@ -7,6 +7,12 @@ export const ep = {
   },
 }
 
+export const route = {
+  home: {
+    base: '/',
+  },
+}
+
 export function requestId(
   method: BackendRequestMethodsAllowed,
   endpoint: string,
