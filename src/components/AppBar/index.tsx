@@ -10,14 +10,19 @@ import { route } from 'utilities'
 // endregion
 
 const StyledLink = styled(Link)`
-  color: ${(props) => props.theme.palette.background.paper};
+  color: ${(props) => props.theme.palette.secondary.contrastText};
   text-decoration: none;
 `
 
 function AppBar() {
   return (
     <Box sx={{ flexGrow: 1, marginBottom: 3 }}>
-      <MUIAppBar position="static">
+      <MUIAppBar
+        sx={{
+          backgroundColor: 'secondary.main',
+        }}
+        position="static"
+      >
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <StyledLink to={route.home.base}>

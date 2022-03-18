@@ -8,8 +8,8 @@ import {
   CardContent,
   Typography,
   Button,
-  styled,
   Divider,
+  styled,
 } from '@mui/material'
 
 // interfaces
@@ -61,7 +61,14 @@ function CardBinanceSymbol(props: BinanceSymbol) {
         <Divider />
         <CardActions sx={{ padding: 2 }}>
           <StyledLink to={`/binance/symbol/${props.symbol}`}>
-            <Button variant="contained">See more</Button>
+            <Button
+              sx={{
+                backgroundColor: 'secondary.main',
+              }}
+              variant="contained"
+            >
+              See more
+            </Button>
           </StyledLink>
         </CardActions>
       </Card>
