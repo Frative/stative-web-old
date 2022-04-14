@@ -14,7 +14,6 @@ import { store } from 'stores'
 
 // views
 const Home = lazy(() => import('components/Home'))
-const BinanceSymbol = lazy(() => import('components/BinanceSymbol'))
 // endregion
 
 function App() {
@@ -25,9 +24,12 @@ function App() {
           <AppBar />
           <Box
             sx={{
-              border: 'dashed 1px',
+              borderTop: 'dashed 1px',
+              borderBottom: 'dashed 1px',
               borderColor: 'text.disabled',
-              flexGrow: 1,
+              flex: 1,
+              display: 'flex',
+              flexDirection: 'column',
             }}
           >
             <Container
@@ -35,18 +37,16 @@ function App() {
               sx={{
                 backgroundColor: 'transparent',
                 boxShadow: 'none',
-                height: 850,
                 borderLeft: 'dashed 1px',
                 borderRight: 'dashed 1px',
                 borderColor: 'text.disabled',
+                padding: 3,
+                flex: 1,
               }}
             >
               <Suspense fallback={<CircularProgress />}>
                 <Routes>
                   <Route path="/" element={<Home />} />
-                  <Route path="/binance/symbol">
-                    <Route path=":symbol" element={<BinanceSymbol />} />
-                  </Route>
                 </Routes>
               </Suspense>
             </Container>

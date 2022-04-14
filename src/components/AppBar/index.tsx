@@ -17,31 +17,23 @@ const StyledLink = styled(Link)`
 
 function AppBar() {
   return (
-    <Box
-      sx={{
-        flexGrow: 1,
-        borderLeft: 'dashed 1px',
-        borderRight: 'dashed 1px',
-        borderColor: 'text.disabled',
-      }}
-    >
+    <Box>
       <Container
         sx={{
-          height: 150,
           borderLeft: 'dashed 1px',
           borderRight: 'dashed 1px',
           borderColor: 'text.disabled',
+          padding: 3,
         }}
       >
         <MUIAppBar
           sx={{
-            backgroundColor: 'transparent',
-            boxShadow: 'none',
+            backgroundColor: 'secondary.main',
           }}
           position="static"
         >
           <Toolbar>
-            <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            <Typography variant="h6" component="div">
               <StyledLink to={route.home.base}>
                 {process.env.REACT_APP_NAME}
               </StyledLink>
