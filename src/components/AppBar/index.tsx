@@ -25,7 +25,7 @@ function AppBar() {
         sx={{
           borderLeft: 'dashed 1px',
           borderRight: 'dashed 1px',
-          borderColor: 'text.disabled',
+          borderColor: 'divider',
           padding: 3,
         }}
       >

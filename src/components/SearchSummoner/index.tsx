@@ -18,7 +18,6 @@ import { handleSearch } from './module'
 
 function SearchSummoner() {
   const search = useSearchStore()
-  // console.log(search)
   return (
     <Box
       sx={{
@@ -76,7 +75,9 @@ function SearchSummoner() {
                   }}
                   position="end"
                 >
-                  <CircularProgress color="primary" size={20} />
+                  {search.summoners.length === 0 && !!search.id && (
+                    <CircularProgress color="info" size={20} />
+                  )}
                 </InputAdornment>
               ),
             }}

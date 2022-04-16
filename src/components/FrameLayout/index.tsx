@@ -15,7 +15,7 @@ function FrameLayout(props: PropsWithChildren<{}>) {
         sx={{
           borderTop: 'dashed 1px',
           borderBottom: 'dashed 1px',
-          borderColor: 'text.disabled',
+          borderColor: 'divider',
           flex: 1,
           display: 'flex',
           flexDirection: 'column',
@@ -28,7 +28,7 @@ function FrameLayout(props: PropsWithChildren<{}>) {
             boxShadow: 'none',
             borderLeft: 'dashed 1px',
             borderRight: 'dashed 1px',
-            borderColor: 'text.disabled',
+            borderColor: 'divider',
             padding: 3,
             flex: 1,
           }}
@@ -40,7 +40,7 @@ function FrameLayout(props: PropsWithChildren<{}>) {
         sx={{
           borderLeft: 'dashed 1px',
           borderRight: 'dashed 1px',
-          borderColor: 'text.disabled',
+          borderColor: 'divider',
           padding: 3,
           color: 'text.secondary',
         }}
