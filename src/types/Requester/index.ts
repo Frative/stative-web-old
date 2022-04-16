@@ -6,6 +6,7 @@ params?: Record<string, any>
 updateCache?: boolean
 label?: string
 method: BackendRequestMethodsAllowed
+queue?: boolean
 }
 
 type Requester = (args: RequesterArgs) => void

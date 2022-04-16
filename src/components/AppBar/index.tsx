@@ -6,6 +6,9 @@ import {
   Container,
 } from '@mui/material'
 
+// components
+import { SearchSummoner } from 'components'
+
 // utilities
 import { route } from 'utilities'
 // endregion
@@ -32,12 +35,18 @@ function AppBar() {
           }}
           position="static"
         >
-          <Toolbar>
+          <Toolbar
+            sx={{
+              display: 'flex',
+              justifyContent: 'space-between',
+            }}
+          >
             <Typography variant="h6" component="div">
               <StyledLink to={route.home.base}>
                 {process.env.REACT_APP_NAME}
               </StyledLink>
             </Typography>
+            <SearchSummoner />
           </Toolbar>
         </MUIAppBar>
       </Container>

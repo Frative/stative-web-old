@@ -5,6 +5,9 @@ export const ep = {
     exchangeInfo: 'https://api.binance.com/api/v3/exchangeInfo',
     depth: 'https://api.binance.com/api/v3/depth',
   },
+  api: {
+    summoner: `${process.env.REACT_APP_API_URL}/summoner`,
+  },
 }
 
 export const route = {
