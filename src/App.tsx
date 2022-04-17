@@ -13,7 +13,8 @@ import { ProvideContextData, FrameLayout } from 'components'
 import { store } from 'stores'
 
 // views
-const Home = lazy(() => import('components/Home'))
+const HomePage = lazy(() => import('components/HomePage'))
+const SummonerPage = lazy(() => import('components/SummonerPage'))
 // endregion
 
 function App() {
@@ -24,7 +25,8 @@ function App() {
           <FrameLayout>
             <Suspense fallback={<CircularProgress />}>
               <Routes>
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<HomePage />} />
+                <Route path="/summoner/:region/:name" element={<SummonerPage />} />
               </Routes>
             </Suspense>
           </FrameLayout>

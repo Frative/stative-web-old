@@ -4,7 +4,7 @@ import React from 'react'
 import { Typography } from '@mui/material'
 // endregion
 
-function Home() {
+function HomePage() {
   return (
     <Typography>
       Hello world!
@@ -12,4 +12,4 @@ function Home() {
   )
 }
 
-export default Home
+export default HomePage

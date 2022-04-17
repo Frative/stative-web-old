@@ -12,7 +12,7 @@ export const handleSearch = throttle(async (_e: any, inputValue: string) => {
   store.dispatch(setSearchId(requestId))
   store.dispatch(setSearchSummoners([]))
 
-  const url = new URL(ep.api.summoner)
+  const url = new URL(ep.api.summoners)
   url.searchParams.append('name', inputValue)
 
   const request = await fetch(url.toString())

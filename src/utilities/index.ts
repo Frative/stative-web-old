@@ -6,22 +6,33 @@ export const ep = {
     depth: 'https://api.binance.com/api/v3/depth',
   },
   api: {
+    summoners: `${process.env.REACT_APP_API_URL}/summoners`,
     summoner: `${process.env.REACT_APP_API_URL}/summoner`,
   },
 }
 
-export const region: Record<string, string> = {
-  la1: 'LAN',
-  la2: 'LAS',
-  br1: 'BR',
-  eun1: 'EUN',
-  euw1: 'EUW',
-  jp1: 'JP',
-  kr: 'KR',
-  na1: 'NA',
-  oc1: 'OC',
-  ru: 'RU',
-  tr1: 'TR',
+export const regions: Record<string, string> = {
+  la1: 'lan',
+  la2: 'las',
+  br1: 'br',
+  eun1: 'eun',
+  euw1: 'euw',
+  jp1: 'jp',
+  kr: 'kr',
+  na1: 'na',
+  oc1: 'oc',
+  ru: 'ru',
+  tr1: 'tr',
+
+  lan: 'la1',
+  las: 'la2',
+  br: 'br1',
+  eun: 'eun1',
+  euw: 'euw1',
+  jp: 'jp1',
+  na: 'na1',
+  oc: 'oc1',
+  tr: 'tr1',
 }
 
 export const route = {

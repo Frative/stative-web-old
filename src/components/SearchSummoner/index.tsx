@@ -17,7 +17,7 @@ import { Link } from 'components'
 import { useSearchStore } from 'hooks'
 
 // utilities
-import { region } from 'utilities'
+import { regions } from 'utilities'
 
 // modules
 import { handleSearch } from './module'
@@ -49,7 +49,7 @@ function SearchSummoner() {
                 justifyContent: 'space-between',
                 width: '100%',
               }}
-              to={`/summoner/${region[option.region].toLowerCase()}/${option.name}`}
+              to={`/summoner/${regions[option.region]}/${option.name}`}
             >
               <img
                 src={`/resources/assets/patch/img/profileicon/${option.profileIconId}.png`}
@@ -80,7 +80,7 @@ function SearchSummoner() {
                     marginLeft: 1,
                   }}
                 >
-                  {region[option.region]}
+                  {regions[option.region].toUpperCase()}
                 </Typography>
               </Box>
             </Link>
