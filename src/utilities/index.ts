@@ -10,6 +10,20 @@ export const ep = {
   },
 }
 
+export const region: Record<string, string> = {
+  la1: 'LAN',
+  la2: 'LAS',
+  br1: 'BR',
+  eun1: 'EUN',
+  euw1: 'EUW',
+  jp1: 'JP',
+  kr: 'KR',
+  na1: 'NA',
+  oc1: 'OC',
+  ru: 'RU',
+  tr1: 'TR',
+}
+
 export const route = {
   home: {
     base: '/',

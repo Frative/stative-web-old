@@ -1,37 +1,32 @@
 // region import
 import React from 'react'
-import { Link } from 'react-router-dom'
 import {
-  AppBar as MUIAppBar, Box, Toolbar, Typography, styled,
+  AppBar as MUIAppBar, Box, Toolbar, Typography,
   Container,
 } from '@mui/material'
 
 // components
-import { SearchSummoner } from 'components'
+import { SearchSummoner, Link } from 'components'
 
 // utilities
 import { route } from 'utilities'
 // endregion
-
-const StyledLink = styled(Link)`
-  color: ${(props) => props.theme.palette.secondary.contrastText};
-  text-decoration: none;
-`
 
 function AppBar() {
   return (
     <Box>
       <Container
         sx={{
-          borderLeft: 'dashed 1px',
-          borderRight: 'dashed 1px',
+          borderLeft: 'solid 1px',
+          borderRight: 'solid 1px',
           borderColor: 'divider',
           padding: 3,
         }}
       >
         <MUIAppBar
           sx={{
-            backgroundColor: 'secondary.main',
+            backgroundColor: 'transparent',
+            boxShadow: 'none',
           }}
           position="static"
         >
@@ -39,12 +34,17 @@ function AppBar() {
             sx={{
               display: 'flex',
               justifyContent: 'space-between',
+              padding: '0px !important',
             }}
           >
-            <Typography variant="h6" component="div">
-              <StyledLink to={route.home.base}>
+            <Typography
+              color="text.primary"
+              variant="h6"
+              component="div"
+            >
+              <Link to={route.home.base}>
                 {process.env.REACT_APP_NAME}
-              </StyledLink>
+              </Link>
             </Typography>
             <SearchSummoner />
           </Toolbar>

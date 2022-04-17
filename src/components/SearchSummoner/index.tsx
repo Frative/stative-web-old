@@ -6,11 +6,18 @@ import {
   TextField,
   InputAdornment,
   CircularProgress,
+  Typography,
 } from '@mui/material'
 import { Search } from '@mui/icons-material'
 
+// components
+import { Link } from 'components'
+
 // hooks
 import { useSearchStore } from 'hooks'
+
+// utilities
+import { region } from 'utilities'
 
 // modules
 import { handleSearch } from './module'
@@ -27,22 +34,56 @@ function SearchSummoner() {
       <Autocomplete
         freeSolo
         disableClearable
+        loading={search.summoners.length === 0 && !!search.id}
         options={search.summoners}
         getOptionLabel={(summoner) => summoner.name}
         onInputChange={handleSearch}
         filterOptions={(x) => x}
         renderOption={(props, option, { selected }) => (
           <li {...props} key={option.summonerId}>
-            <img
-              src={`/resources/assets/patch/img/profileicon/${option.profileIconId}.png`}
-              alt={option.name}
-              loading="lazy"
+            <Link
               style={{
-                width: 36,
-                height: 36,
+                textDecoration: 'none',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'space-between',
+                width: '100%',
               }}
-            />
-            <b>{option.name}</b>
+              to={`/summoner/${region[option.region].toLowerCase()}/${option.name}`}
+            >
+              <img
+                src={`/resources/assets/patch/img/profileicon/${option.profileIconId}.png`}
+                alt={option.name}
+                loading="lazy"
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: '100%',
+                }}
+              />
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  width: '100%',
+                }}
+              >
+                <Typography
+                  sx={{
+                    marginLeft: 1,
+                  }}
+                >
+                  {option.name}
+                </Typography>
+                <Typography
+                  sx={{
+                    marginLeft: 1,
+                  }}
+                >
+                  {region[option.region]}
+                </Typography>
+              </Box>
+            </Link>
           </li>
         )}
         renderInput={(params) => (
@@ -52,9 +93,10 @@ function SearchSummoner() {
             InputProps={{
               ...params.InputProps,
               sx: {
+                backgroundColor: 'background.paper',
                 borderRadius: '9999px',
-                padding: 0,
-                color: 'secondary.contrastText',
+                padding: '0px !important',
+                color: 'text.primary',
               },
               startAdornment: (
                 <InputAdornment

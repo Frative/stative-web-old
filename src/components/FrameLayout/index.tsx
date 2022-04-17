@@ -13,8 +13,8 @@ function FrameLayout(props: PropsWithChildren<{}>) {
       <AppBar />
       <Box
         sx={{
-          borderTop: 'dashed 1px',
-          borderBottom: 'dashed 1px',
+          borderTop: 'solid 1px',
+          borderBottom: 'solid 1px',
           borderColor: 'divider',
           flex: 1,
           display: 'flex',
@@ -26,8 +26,8 @@ function FrameLayout(props: PropsWithChildren<{}>) {
           sx={{
             backgroundColor: 'transparent',
             boxShadow: 'none',
-            borderLeft: 'dashed 1px',
-            borderRight: 'dashed 1px',
+            borderLeft: 'solid 1px',
+            borderRight: 'solid 1px',
             borderColor: 'divider',
             padding: 3,
             flex: 1,
@@ -38,15 +38,15 @@ function FrameLayout(props: PropsWithChildren<{}>) {
       </Box>
       <Container
         sx={{
-          borderLeft: 'dashed 1px',
-          borderRight: 'dashed 1px',
+          borderLeft: 'solid 1px',
+          borderRight: 'solid 1px',
           borderColor: 'divider',
           padding: 3,
           color: 'text.secondary',
         }}
       >
         <Typography>
-          © Copyright 2022 Stative. All rights reserved.
+          Stative © Copyright 2022. All rights reserved.
         </Typography>
         <Typography>
           Stative isn&apos;t endorsed by Riot Games and doesn&apos;t reflect the views or opinions of Riot Games or anyone officially involved in producing or managing League of Legends.
