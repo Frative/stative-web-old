@@ -24,6 +24,7 @@ function FrameLayout(props: PropsWithChildren<{}>) {
         <Container
           maxWidth="lg"
           sx={{
+            display: 'flex',
             backgroundColor: 'transparent',
             boxShadow: 'none',
             borderLeft: 'solid 1px',
