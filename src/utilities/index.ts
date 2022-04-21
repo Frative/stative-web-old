@@ -82,6 +82,9 @@ export function binanceAsksWalls(asks: [string, string][]) {
 }
 
 export function colorScore(score: number) {
+  if (score > 80) {
+    return 'info.main'
+  }
   if (score > 60) {
     return 'success.light'
   }
