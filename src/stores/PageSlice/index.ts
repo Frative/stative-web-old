@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
-import { BackendSummoner } from 'interfaces'
+import { BackendSummoner, BackendSummonerMatch } from 'interfaces'
 
 interface State {
   summoner: {
     status: 'active' | 'inactive'
     data: BackendSummoner | undefined
+    matches: BackendSummonerMatch[]
   }
 }
 
@@ -12,6 +13,7 @@ const initialState: State = {
   summoner: {
     status: 'inactive',
     data: undefined,
+    matches: [],
   },
 }
 
@@ -32,10 +34,27 @@ const PageSlice = createSlice({
         data: action.payload,
       },
     }),
+    setPageSummonerMatches: (state, action: PayloadAction<BackendSummonerMatch[]>) => ({
+      ...state,
+      summoner: {
+        ...state.summoner,
+        matches: action.payload,
+      },
+    }),
+    resetPageSummoner: (state) => ({
+      ...state,
+      summoner: {
+        status: 'inactive',
+        data: undefined,
+        matches: [],
+      },
+    }),
   },
   initialState,
 })
 
-export const { setPageSummonerStatus, setPageSummonerData } = PageSlice.actions
+export const {
+  setPageSummonerStatus, setPageSummonerData, setPageSummonerMatches, resetPageSummoner,
+} = PageSlice.actions
 
 export default PageSlice.reducer

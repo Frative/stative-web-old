@@ -8,6 +8,7 @@ export const ep = {
   api: {
     summoners: `${process.env.REACT_APP_API_URL}/summoners`,
     summoner: `${process.env.REACT_APP_API_URL}/summoner`,
+    summonerMatches: `${process.env.REACT_APP_API_URL}/summoner/matches`,
   },
 }
 
@@ -78,4 +79,14 @@ export function binanceAsksWalls(asks: [string, string][]) {
       previousValue.quote.push(currentValue[0] as never)
       return previousValue
     }, { base: [], quote: [] })
+}
+
+export function colorScore(score: number) {
+  if (score > 60) {
+    return 'success.light'
+  }
+  if (score > 40) {
+    return 'warning.main'
+  }
+  return 'error.main'
 }

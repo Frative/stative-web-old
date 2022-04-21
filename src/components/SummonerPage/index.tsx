@@ -9,16 +9,19 @@ import {
 import { useParams } from 'react-router-dom'
 
 // actions
-import { setPageSummonerStatus, setPageSummonerData } from 'stores/PageSlice'
+import { setPageSummonerStatus, resetPageSummoner } from 'stores/PageSlice'
 
 // hooks
 import { usePageStore, useStoreDispatch } from 'hooks'
+
+// components
+import { CardSummonerMatch } from 'components'
 
 // utilities
 import { regions } from 'utilities'
 
 // modules
-import { setSummoner } from './module'
+import { setSummoner, setSummonerMatches } from './module'
 // endregion
 
 function SummonerPage() {
@@ -31,11 +34,18 @@ function SummonerPage() {
     if (region && name) {
       setSummoner(name, regions[region])
     }
+
     return () => {
-      dispatch(setPageSummonerStatus('inactive'))
-      dispatch(setPageSummonerData(undefined))
+      dispatch(resetPageSummoner())
     }
   }, [name, region])
+
+  useEffect(() => {
+    if (page.summoner.data && region) {
+      const { puuid } = page.summoner.data
+      setSummonerMatches(puuid, regions[region])
+    }
+  }, [page.summoner.data])
 
   return (
     <Container
@@ -91,10 +101,32 @@ function SummonerPage() {
 
           <Box>
             <Typography
-              component="b"
+              component="div"
+              sx={{
+                marginBottom: 2,
+              }}
             >
               Last matches
             </Typography>
+            {page.summoner.matches.length === 0 && (
+              <Box
+                sx={{
+                  display: 'flex',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  flexDirection: 'column',
+                  minHeight: 300,
+                }}
+              >
+                <CircularProgress />
+              </Box>
+            )}
+            {page.summoner.matches.map((match) => (
+              <CardSummonerMatch
+                key={match.info.gameId}
+                match={match}
+              />
+            ))}
           </Box>
         </Box>
       )}
