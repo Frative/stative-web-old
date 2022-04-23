@@ -1,53 +1,42 @@
-import { BackendSummonerMatchInfoParticipant } from 'interfaces'
-
-interface MatchInfoTeamObjectiveElement {
-  first: boolean
-  kills: number
+interface MatchParticipantPerksStyleSelection {
+  perk: number
+  var1: number
+  var2: number
+  var3: number
 }
 
-interface MatchInfoTeamObjective {
-  baron: MatchInfoTeamObjectiveElement
-  champion: MatchInfoTeamObjectiveElement
-  dragon: MatchInfoTeamObjectiveElement
-  inhibitor: MatchInfoTeamObjectiveElement
-  riftHerald: MatchInfoTeamObjectiveElement
-  tower: MatchInfoTeamObjectiveElement
+interface StatPerks {
+  defense: number
+  flex: number
+  offense: number
 }
 
-interface MatchInfoTeam {
-  bans: string[]
-  objectives: MatchInfoTeamObjective
-  teamId: number
+interface MatchParticipantPerksStyle {
+  description: string
+  selections: MatchParticipantPerksStyleSelection[]
+  style: number
+}
+
+interface MatchParticipantPerks {
+  statPerks: StatPerks
+  styles: MatchParticipantPerksStyle[]
+}
+
+interface MatchParticipant {
+  puuid: string
+  score: number
   win: boolean
-}
-
-interface MatchMetadata {
-  dataVersion: string
-  matchId: string
-  participants: string[]
-}
-
-interface MatchInfo {
-  gameCreation: number
-  gameDuration: number
-  gameEndTimestamp: number
-  gameId: number
-  gameMode: string
-  gameName: string
-  gameStartTimestamp: number
-  gameType: string
-  gameVersion: string
-  mapId: number
-  participants: BackendSummonerMatchInfoParticipant[]
-  platformId: string
-  queueId: number
-  teams: MatchInfoTeam[]
-  tournamentCode: string
+  championName: string
+  perks: MatchParticipantPerks
 }
 
 interface BackendSummonerMatch {
-  metadata: MatchMetadata
-  info: MatchInfo
+  id: string
+  gameVersion: string
+  gameCreation: number
+  gameDuration: number
+  gameMode: string
+  participants: MatchParticipant[]
 }
 
 export default BackendSummonerMatch

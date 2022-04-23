@@ -12,10 +12,10 @@ import { useParams } from 'react-router-dom'
 import { setPageSummonerStatus, resetPageSummoner } from 'stores/PageSlice'
 
 // hooks
-import { usePageStore, useStoreDispatch } from 'hooks'
+import { usePageStore, useStoreDispatch, useAverageMatchScore } from 'hooks'
 
 // components
-import { CardSummonerMatch } from 'components'
+import { CardSummonerMatch, CircularProgressScore } from 'components'
 
 // utilities
 import { regions } from 'utilities'
@@ -28,6 +28,8 @@ function SummonerPage() {
   const page = usePageStore()
   const dispatch = useStoreDispatch()
   const { region, name } = useParams()
+
+  const averageMatchScore = useAverageMatchScore()
 
   useEffect(() => {
     dispatch(setPageSummonerStatus('active'))
@@ -74,29 +76,43 @@ function SummonerPage() {
               display: 'flex',
               alignItems: 'center',
               marginBottom: 3,
+              justifyContent: 'space-between',
             }}
           >
-            <img
-              src={`/resources/assets/patch/img/profileicon/${page.summoner.data.profileIconId}.png`}
-              alt={page.summoner.data.name}
-              loading="lazy"
-              style={{
-                width: 75,
-                height: 75,
-                borderRadius: '100%',
-              }}
-            />
-            <Typography
-              variant="h6"
-              component="div"
+            <Box
               sx={{
-                marginLeft: 1,
+                display: 'flex',
+                alignItems: 'center',
               }}
             >
-              {page.summoner.data?.name}
-              {' • '}
-              {page.summoner.data?.summonerLevel}
-            </Typography>
+              <img
+                src={`/resources/assets/patch/img/profileicon/${page.summoner.data.profileIconId}.png`}
+                alt={page.summoner.data.name}
+                loading="lazy"
+                style={{
+                  width: 75,
+                  height: 75,
+                  borderRadius: '100%',
+                }}
+              />
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{
+                  marginLeft: 1,
+                }}
+              >
+                {page.summoner.data?.name}
+                {' • '}
+                {page.summoner.data?.summonerLevel}
+              </Typography>
+            </Box>
+            <Box>
+              <CircularProgressScore
+                value={averageMatchScore}
+                size={75}
+              />
+            </Box>
           </Box>
 
           <Box>
@@ -123,7 +139,7 @@ function SummonerPage() {
             )}
             {page.summoner.matches.map((match) => (
               <CardSummonerMatch
-                key={match.info.gameId}
+                key={match.id}
                 match={match}
               />
             ))}
